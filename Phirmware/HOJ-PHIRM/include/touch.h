@@ -28,10 +28,8 @@ enum touchSensors {
 class TouchSensor
 {
     public:
-        TouchSensor(int pin) : _pin(pin) {
-        pinMode(_pin, INPUT);
-        }
-    
+        TouchSensor(int pin);
+
         int getSensorState();
         void update();
     
