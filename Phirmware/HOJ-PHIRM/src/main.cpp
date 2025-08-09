@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
 #include "BleGamepad.h"
-#include "packet.h"
 
 #define LED_BUILTIN 2
 
@@ -21,11 +20,6 @@ void setup()
   gamepad.press();
 
   Serial.println("Gamepad started");
-  Serial.println(gamepad.configuration.getFirmwareRevision());
-  Serial.println(gamepad.configuration.getHardwareRevision());
-  Serial.println(gamepad.configuration.getModelNumber());
-  Serial.println(gamepad.configuration.getPid());
-  Serial.println(gamepad.configuration.getVid());
 }
 
 void loop() 
