@@ -1,11 +1,13 @@
 #include <Arduino.h>
 
 #include "BleGamepad.h"
+#include "inputs.h"
 
 #define LED_BUILTIN 2
 
-BleGamepad gamepad = BleGamepad("Jeeve's Glove", "Jeeve's Chosen", uint8_t(69), false);
+BleGamepad gamepad = BleGamepad("Jeeve's Glove", "Ministry of Jeeves", uint8_t(69), false);
 
+Controller inputController = Controller(&gamepad);
 
 void setup()
 {
@@ -15,21 +17,10 @@ void setup()
   gamepad.begin();
   gamepad.configuration.setVid(10422);
   gamepad.configuration.setPid(0xbbac);
-  // gamepad.configuration.setHidReportId(100);
-
-  gamepad.press();
-
   Serial.println("Gamepad started");
 }
 
 void loop() 
 {
-  if(gamepad.isConnected()) {
-    // Serial.println("Gamepad is connected"); 
-    gamepad.press(BUTTON_1);
-    // Serial.println("Button 1 pressed");
-    gamepad.release(BUTTON_1);
-  } else {
-    Serial.println("Gamepad is not connected");
-  }
+  
 }

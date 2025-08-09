@@ -1,12 +1,10 @@
+#pragma once
 #include <Arduino.h>
 
-enum touchPins {
-    TOUCH0,
-    TOUCH2,
-    TOUCH3,
-    TOUCH4,
-    TOUCH5,
-};
+#define TOUCH0 1
+#define TOUCH2 2
+#define TOUCH3 3
+#define TOUCH4 4
 
 #define BUFFER_LENGTH 5
 
