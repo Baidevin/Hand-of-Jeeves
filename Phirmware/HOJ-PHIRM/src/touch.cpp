@@ -28,7 +28,7 @@ int TouchSensor::getSensorState(){
     if (average <= LOWER){
         state = TOUCHTHUMB;
     } else if (average >= UPPER){
-        state = TOUCHUPPERPALM;
+        state = NONE;
     } else {
         state = TOUCHLOWERPALM;
     }
@@ -38,6 +38,6 @@ int TouchSensor::getSensorState(){
 
 void TouchSensor::update() {
     _itr++;
-    _itr = _itr % 5;
+    _itr = _itr % BUFFER_LENGTH;
     _values[_itr] = touchRead(_pin);
 }
