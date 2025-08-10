@@ -26,10 +26,6 @@ void IMU::begin()
   int abs_acc_index_prev =0;
   Wire.begin();
   Wire.setClock(400000); //400khz clock
-  while (!Serial) {
-    ;
-  }
-
   int err = _BMI.init(calib, IMU_ADDRESS);
   if (err != 0) {
     Serial.print("Error initializing IMU: ");
