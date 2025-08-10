@@ -46,6 +46,6 @@ void loop()
   // Serial.print(imu.getGyroY());
   // Serial.print(" Gyro Z: ");
   // Serial.println(imu.getGyroZ());
-  delay(500);
+  delay(100);
   inputController.update();
 }

@@ -30,7 +30,7 @@ enum dPadState
 #define TOUCH6  13
 #define TOUCH7  14
 
-#define BUFFER_LENGTH 5
+#define BUFFER_LENGTH 2
 
 class TouchSensor
 {

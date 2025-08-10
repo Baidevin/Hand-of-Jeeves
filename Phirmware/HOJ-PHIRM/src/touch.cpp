@@ -18,6 +18,7 @@ int TouchSensor::getSensorState(){
         average += _values[i];
     }
     average = average / BUFFER_LENGTH;
+    
 
     if (_isDPad)
     {
