@@ -15,8 +15,6 @@ Gesture gesture = Gesture(&imu);
 
 Controller inputController = Controller(&gamepad);
 
-IMU imu = IMU();
-
 void setup()
 {
   Serial.begin(115200);
@@ -27,25 +25,27 @@ void setup()
   gamepad.configuration.setPid(0xbbac);
   Serial.println("Gamepad started");
   imu.begin();
+  Serial.println("IMU started");
 }
 
 void loop() 
 {
+  Serial.println("Looping...");
   // gamepad.press(BUTTON_1);
   // gamepad.release(BUTTON_1);
-  // imu.update();
-  // Serial.print("Accel X: ");
-  // Serial.print(imu.getAccelX());
-  // Serial.print(" Accel Y: ");
-  // Serial.print(imu.getAccelY());
-  // Serial.print(" Accel Z: ");
-  // Serial.print(imu.getAccelZ());
+  imu.update();
+  Serial.print("Accel X: ");
+  Serial.print(imu.getAccelX());
+  Serial.print(" Accel Y: ");
+  Serial.print(imu.getAccelY());
+  Serial.print(" Accel Z: ");
+  Serial.print(imu.getAccelZ());
   // Serial.print(" Gyro X: ");
   // Serial.print(imu.getGyroX());
   // Serial.print(" Gyro Y: ");
   // Serial.print(imu.getGyroY());
   // Serial.print(" Gyro Z: ");
   // Serial.println(imu.getGyroZ());
-  delay(10);
+  delay(500);
   inputController.update();
 }

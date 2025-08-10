@@ -30,9 +30,6 @@ void IMU::begin()
   if (err != 0) {
     Serial.print("Error initializing IMU: ");
     Serial.println(err);
-    while (true) {
-      ;
-    }
   }
   
   calibrate();
@@ -42,9 +39,6 @@ void IMU::begin()
   if (err != 0) {
     Serial.print("Error Setting range: ");
     Serial.println(err);
-    while (true) {
-      ;
-    }
   }
 }
 

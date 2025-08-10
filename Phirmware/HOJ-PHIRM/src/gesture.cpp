@@ -26,4 +26,5 @@ int Gesture::getGesture() // computes if gesture occured
     {
         return GESTURE_PUNCH;
     }
+    return GESTURE_NONE;
 }

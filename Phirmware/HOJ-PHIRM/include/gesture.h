@@ -3,6 +3,7 @@
 #include "IMU.h"
 
 enum gestures {
+    GESTURE_NONE,
     GESTURE_PUNCH,
     GESTURE_SWING,
     GESTURE_ROTATE
