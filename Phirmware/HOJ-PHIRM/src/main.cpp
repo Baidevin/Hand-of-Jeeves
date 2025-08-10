@@ -3,12 +3,15 @@
 #include "BleGamepad.h"
 #include "inputs.h"
 #include "IMU.h"
+#include "gesture.h"
 
 #define LED_BUILTIN 2
 
 BleGamepad gamepad = BleGamepad("Jeeve's Glove", "Ministry of Jeeves", uint8_t(69), false);
 
 Controller inputController = Controller(&gamepad);
+
+Gesture gesture = Gesture()
 
 IMU imu = IMU();
 
