@@ -3,8 +3,9 @@
 class Controller
 {
     private:
-        TouchSensor* sensors[5];
         BleGamepad* _gamepad;
+        TouchSensor* sensors[5];
+        Gesture* gestureEngine;
 
     public:
         Controller(BleGamepad* gamepad);

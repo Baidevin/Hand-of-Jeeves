@@ -10,3 +10,11 @@ void Gesture::update()
 {
     int thisCoolGesture = _imu->getAccelX();
 }
+
+int Gesture::getGesture()
+{
+    if (_imu->getAccelX() > 100)
+    {
+        return GESTURE_PUNCH;
+    }
+}
