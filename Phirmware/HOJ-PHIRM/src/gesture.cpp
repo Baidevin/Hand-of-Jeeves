@@ -6,14 +6,23 @@ Gesture::Gesture(IMU* imu)
     _imu = imu;
 }
 
-void Gesture::update()
+void Gesture::absolute_acc()
 {
-    int thisCoolGesture = _imu->getAccelX();
+      _abs_acc =  (_imu->getAccelX())*(_imu->getAccelX()) + (_imu->getAccelY())*(_imu->getAccelY()) + (_imu->getAccelZ())*(_imu->getAccelZ());
 }
 
-int Gesture::getGesture()
+void Gesture::update() // udated IMU so a new gesture can be computed
 {
-    if (_imu->getAccelX() > 100)
+    // int thisCoolGesture = _imu->getAccelX();
+    _imu->update();
+    absolute_acc();
+}
+
+
+int Gesture::getGesture() // computes if gesture occured
+{
+
+    if ( _abs_acc > 10)
     {
         return GESTURE_PUNCH;
     }

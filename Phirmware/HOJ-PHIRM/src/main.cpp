@@ -9,11 +9,15 @@
 
 BleGamepad gamepad = BleGamepad("Jeeve's Glove", "Ministry of Jeeves", uint8_t(69), false);
 
+IMU imu = IMU();
+
+Gesture gesture = Gesture(&imu);
+
 Controller inputController = Controller(&gamepad);
 
-Gesture gesture = Gesture()
 
-IMU imu = IMU();
+
+
 
 void setup()
 {

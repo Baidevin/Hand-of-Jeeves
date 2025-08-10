@@ -1,5 +1,6 @@
 #include "BleGamepad.h"
 #include "touch.h"
+#include "gesture.h"
 class Controller
 {
     private:
