@@ -2,12 +2,15 @@
 
 #include <Arduino.h>
 
-TouchSensor::TouchSensor(int pin){
+TouchSensor::TouchSensor(int pin, bool isDPad){
+    _pin = pin;
     pinMode(pin, INPUT);
     _sensorReference = touchRead(pin);
+    _isDPad = isDPad;
 }
 
 int TouchSensor::getSensorState(){
+
 
     double average = 0;
     sensorState state;
@@ -16,9 +19,14 @@ int TouchSensor::getSensorState(){
     }
     average = average / BUFFER_LENGTH;
 
-    if (average <= Lower){
+    if (_isDPad)
+    {
+        return average > DPAD_THRESH ? DPAD_TOUCHED : DPAD_RELEASE;
+    }
+
+    if (average <= LOWER){
         state = TOUCHTHUMB;
-    } else if (average >= Upper){
+    } else if (average >= UPPER){
         state = TOUCHUPPERPALM;
     } else {
         state = TOUCHLOWERPALM;
